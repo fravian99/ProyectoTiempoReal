@@ -30,17 +30,16 @@ int serial_until_new_line(int serial_port, char* buffer, int size, int * running
     int iter = 0;
     flag = 0;
     actual_size = 0;
+    buffer2 =  buffer;
     while(!flag && *running && actual_size < size) {
-        buffer2 =  buffer + actual_size;
-        n_bytes = serial_read(serial_port, buffer2, size - actual_size);
+        serial_read(serial_port, buffer2, size - actual_size);
+        n_bytes = strlen(buffer2);
         if (n_bytes > 0) {
             actual_size += n_bytes;   
             flag = buffer[actual_size - 2] == '\n' ;
             iter++;
+            buffer2 =  buffer + actual_size;
         }
     }
-    //buffer[actual_size - 2] = '\0';
-    //buffer[actual_size - 1] = '\0';
-    //printf("Read %d bytes: |||%s|||\n", actual_size, buffer);
     return actual_size;
 }

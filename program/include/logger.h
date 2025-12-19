@@ -1,3 +1,5 @@
+#pragma once
+
 #include <stdio.h>
 
 #define TIME_BUFFER_SIZE 100
