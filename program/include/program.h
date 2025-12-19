@@ -39,6 +39,5 @@ typedef struct {
     GtkTextBuffer * buffer;
     char * msg;
     pthread_mutex_t * mutex_read;
-    gboolean clean;
     Buffer * buf;
 } SerialTask;

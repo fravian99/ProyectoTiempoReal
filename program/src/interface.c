@@ -15,9 +15,6 @@ GtkWidget * create_row_entry(GtkWidget *widget1, GtkWidget *widget2) {
 
     gtk_grid_attach(GTK_GRID(grid_input), GTK_WIDGET(widget1), 1, 10, 8, 2);
     gtk_grid_attach(GTK_GRID(grid_input), GTK_WIDGET(widget2), 14, 10, 8, 2);
-
-    //gtk_widget_set_hexpand(GTK_WIDGET(grid_input), true);
-    //gtk_widget_set_vexpand(GTK_WIDGET(grid_input), true);
     return GTK_WIDGET(grid_input);
 }
 

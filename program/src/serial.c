@@ -17,17 +17,12 @@ int serial_read(int serial_port, char* buffer, int size) {
     {
         perror("Failed to read from the serial port");
     }
-    else
-    {
-        //printf("Read %d bytes: |||%s|||\n", num_bytes, buffer);
-    }
     return num_bytes;
 }
 
 int serial_until_new_line(int serial_port, char* buffer, int size, int * running) {
     int flag, n_bytes, actual_size;
     char * buffer2;
-    int iter = 0;
     flag = 0;
     actual_size = 0;
     buffer2 =  buffer;
@@ -36,8 +31,7 @@ int serial_until_new_line(int serial_port, char* buffer, int size, int * running
         n_bytes = strlen(buffer2);
         if (n_bytes > 0) {
             actual_size += n_bytes;   
-            flag = buffer[actual_size - 2] == '\n' ;
-            iter++;
+            flag = buffer[actual_size - 2] == '\n';
             buffer2 =  buffer + actual_size;
         }
     }
