@@ -1,0 +1,6 @@
+.vscode
+objs/*
+build/*
+*.log
+*.o
+*.tgz
